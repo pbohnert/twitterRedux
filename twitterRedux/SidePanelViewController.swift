@@ -8,13 +8,10 @@
 
 import UIKit
 
-@objc
-protocol SidePanelViewControllerDelegate {
-}
 
 class SidePanelViewController: UIViewController {
     
-    var delegate: SidePanelViewControllerDelegate?
+    var panelDelegate: PanelDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()

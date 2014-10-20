@@ -14,15 +14,18 @@ enum SlideOutState {
     case LeftPanelExpanded
 }
 
-class ContainerViewController: UIViewController, CenterViewControllerDelegate, UIGestureRecognizerDelegate {
+class ContainerViewController: UIViewController, PanelDelegate, UIGestureRecognizerDelegate {
     var leftViewController: SidePanelViewController!
     var loginController: LoginViewController!
     var centerViewController: UINavigationController!
     
-
+    @IBOutlet weak var sideView: UIView!
+    @IBOutlet weak var contentView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // use NotificationCenter to catch my login/logout actions
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "userDidLogin", name: userDidLoginNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "userDidLogout", name: userDidLogoutNotification, object: nil)
 
@@ -30,11 +33,12 @@ class ContainerViewController: UIViewController, CenterViewControllerDelegate, U
         var storyboard = UIStoryboard(name: "Main", bundle: nil)
         self.leftViewController = storyboard.instantiateViewControllerWithIdentifier("SidePanelViewController") as SidePanelViewController
         addChildViewController(self.leftViewController)
-        self.menuView.addSubview(self.leftViewController.view)
+        self.sideView.addSubview(self.leftViewController.view)
         self.leftViewController.view.frame = self.view.frame
         self.leftViewController.didMoveToParentViewController(self)
-        self.leftViewController.delegate = self
+        self.leftViewController.panelDelegate = self
         
+        // What my Center VC is depends upon whether I'm logged in or not.  Note that I instantiate the Tweets Nav Controller if logged in, since TweetsVC is embedded in that NC.
         if (User.currentUser != nil) {
             self.centerViewController = storyboard.instantiateViewControllerWithIdentifier("TweetsNavigationViewController") as UINavigationController
             self.addChildViewController(self.centerViewController)
@@ -49,22 +53,22 @@ class ContainerViewController: UIViewController, CenterViewControllerDelegate, U
             self.loginController.didMoveToParentViewController(self)
             
         }
+        // I have two views on my container VC.  Bring the right one to the front.
         self.view.bringSubviewToFront(self.contentView)
-        
-        
         
         
         // Do any additional setup after loading the view, typically from a nib.
     }
 
-   
-    
-    
     var currentState: SlideOutState = .Collapsed {
         didSet {
             let shouldShowShadow = currentState != .Collapsed
             showShadowForCenterViewController(shouldShowShadow)
         }
+    }
+    
+    func showMyProfile() {
+        
     }
     
     func userDidLogin() {
@@ -77,7 +81,7 @@ class ContainerViewController: UIViewController, CenterViewControllerDelegate, U
             self.addChildViewController(self.centerViewController)
         }
         
-        view.addSubview(self.centerViewController.view)
+        self.contentView.addSubview(self.centerViewController.view)
         self.centerViewController.view.frame = self.view.frame
         self.centerViewController.didMoveToParentViewController(self)
     }
@@ -86,8 +90,8 @@ class ContainerViewController: UIViewController, CenterViewControllerDelegate, U
         var storyboard = UIStoryboard(name: "Main", bundle: nil)
         self.loginController = storyboard.instantiateViewControllerWithIdentifier("LoginViewController") as LoginViewController
         addChildViewController(self.loginController)
-       // self.contentView.addSubview(self.loginController.view)
-       // self.loginController.view.frame = self.view.frame
+        self.contentView.addSubview(self.loginController.view)
+        self.loginController.view.frame = self.view.frame
         self.loginController.didMoveToParentViewController(self)
     }
     

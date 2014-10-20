@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		019B9112BDFAF525DB5DCCDD /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E3B1899E9143307972F1AE1E /* libPods.a */; };
+		D039870019F58169008C68AB /* PanelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03986FF19F58169008C68AB /* PanelDelegate.swift */; };
 		D09B9F9319F56A490080EC36 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09B9F9219F56A490080EC36 /* AppDelegate.swift */; };
 		D09B9F9519F56A490080EC36 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09B9F9419F56A490080EC36 /* ContainerViewController.swift */; };
 		D09B9F9819F56A490080EC36 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D09B9F9619F56A490080EC36 /* Main.storyboard */; };
@@ -35,6 +36,7 @@
 /* Begin PBXFileReference section */
 		64FE4DF97B5C016B78063641 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		76CA4339637769F9927AE88F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		D03986FF19F58169008C68AB /* PanelDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanelDelegate.swift; sourceTree = "<group>"; };
 		D09B9F8D19F56A490080EC36 /* twitterRedux.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = twitterRedux.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D09B9F9119F56A490080EC36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D09B9F9219F56A490080EC36 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -91,6 +93,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		D03986FE19F5814C008C68AB /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				D03986FF19F58169008C68AB /* PanelDelegate.swift */,
+			);
+			name = Delegate;
+			sourceTree = "<group>";
+		};
 		D09B9F8419F56A490080EC36 = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +125,7 @@
 		D09B9F8F19F56A490080EC36 /* twitterRedux */ = {
 			isa = PBXGroup;
 			children = (
+				D03986FE19F5814C008C68AB /* Delegate */,
 				D09B9FB819F56B850080EC36 /* Controllers */,
 				D09B9FB719F56B7D0080EC36 /* Models */,
 				D09B9FB619F56B750080EC36 /* API */,
@@ -318,6 +329,7 @@
 				D0DE397419F57B3B008895CF /* TweetsViewController.swift in Sources */,
 				D09B9FB519F56B590080EC36 /* SidePanelViewController.swift in Sources */,
 				D09B9FB319F56B0A0080EC36 /* LoginViewController.swift in Sources */,
+				D039870019F58169008C68AB /* PanelDelegate.swift in Sources */,
 				D09B9F9519F56A490080EC36 /* ContainerViewController.swift in Sources */,
 				D09B9FBC19F570520080EC36 /* Tweet.swift in Sources */,
 				D0DE397219F5722D008895CF /* TwitterClient.swift in Sources */,
