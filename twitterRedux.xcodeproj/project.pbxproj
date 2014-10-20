@@ -21,6 +21,7 @@
 		D09B9FBC19F570520080EC36 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09B9FBB19F570520080EC36 /* Tweet.swift */; };
 		D0DE397219F5722D008895CF /* TwitterClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DE397119F5722D008895CF /* TwitterClient.swift */; };
 		D0DE397419F57B3B008895CF /* TweetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DE397319F57B3B008895CF /* TweetsViewController.swift */; };
+		D0F69C3F19F5942900DD73D4 /* TweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F69C3E19F5942900DD73D4 /* TweetCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		D0DE396E19F571A1008895CF /* twitterRedux-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "twitterRedux-Bridging-Header.h"; sourceTree = "<group>"; };
 		D0DE397119F5722D008895CF /* TwitterClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterClient.swift; sourceTree = "<group>"; };
 		D0DE397319F57B3B008895CF /* TweetsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetsViewController.swift; sourceTree = "<group>"; };
+		D0F69C3E19F5942900DD73D4 /* TweetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetCell.swift; sourceTree = "<group>"; };
 		E3B1899E9143307972F1AE1E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -134,6 +136,7 @@
 				D09B9F9919F56A490080EC36 /* Images.xcassets */,
 				D09B9F9B19F56A490080EC36 /* LaunchScreen.xib */,
 				D09B9F9019F56A490080EC36 /* Supporting Files */,
+				D0F69C3E19F5942900DD73D4 /* TweetCell.swift */,
 			);
 			path = twitterRedux;
 			sourceTree = "<group>";
@@ -333,6 +336,7 @@
 				D09B9F9519F56A490080EC36 /* ContainerViewController.swift in Sources */,
 				D09B9FBC19F570520080EC36 /* Tweet.swift in Sources */,
 				D0DE397219F5722D008895CF /* TwitterClient.swift in Sources */,
+				D0F69C3F19F5942900DD73D4 /* TweetCell.swift in Sources */,
 				D09B9FBA19F5701C0080EC36 /* User.swift in Sources */,
 				D09B9F9319F56A490080EC36 /* AppDelegate.swift in Sources */,
 			);
