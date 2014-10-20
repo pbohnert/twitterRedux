@@ -62,4 +62,15 @@ class User: NSObject {
             
         }
     }
+    
+    class func loginWithCompletion(completion: () -> Void) {
+        TwitterClient.sharedInstance.loginWithCompletion { (user, error) -> () in
+            if (user != nil) {
+                NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: userDidLoginNotification, object: nil))
+                completion()
+            } else {
+                println("error logging in")
+            }
+        }
+    }
 }

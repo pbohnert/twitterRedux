@@ -69,6 +69,43 @@
             </objects>
             <point key="canvasLocation" x="868" y="327"/>
         </scene>
+        <!--Tweets View Controller-->
+        <scene sceneID="cok-Qs-ddb">
+            <objects>
+                <viewController storyboardIdentifier="TweetsViewController" id="mEz-si-4X2" customClass="TweetsViewController" customModule="twitterRedux" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="J8W-7o-21k"/>
+                        <viewControllerLayoutGuide type="bottom" id="D62-SG-j4z"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="oHg-6j-l6S">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="rlC-Qc-PdZ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iFq-by-PJ6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1946" y="328"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="0qy-eA-UTX">
+            <objects>
+                <navigationController storyboardIdentifier="TweetsNavigationViewController" automaticallyAdjustsScrollViewInsets="NO" id="YkV-QM-VtA" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4Ta-dn-paT">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="mEz-si-4X2" kind="relationship" relationship="rootViewController" id="0NU-Xw-VVv"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t6n-6X-NfT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1414" y="328"/>
+        </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

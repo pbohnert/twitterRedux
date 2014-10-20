@@ -1,5 +1,5 @@
 //
-//  SidePanelViewController.swift
+//  TweetsViewController.swift
 //  twitterRedux
 //
 //  Created by Peter Bohnert on 10/20/14.
@@ -8,13 +8,7 @@
 
 import UIKit
 
-@objc
-protocol SidePanelViewControllerDelegate {
-}
-
-class SidePanelViewController: UIViewController {
-    
-    var delegate: SidePanelViewControllerDelegate?
+class TweetsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

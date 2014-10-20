@@ -22,16 +22,9 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func onLogin(sender: AnyObject) {
-        TwitterClient.sharedInstance.loginWithCompletion() {
-            (user: User?, error: NSError?) in
-            if user != nil {
-                //perform seque
-                self.performSegueWithIdentifier("loginSegue", sender: self)
-            } else {
-                // handle login error
-                println("couldn't get user")
-            }
-        }
+        User.loginWithCompletion({ () -> Void in
+            println("hoping we have logged in...")
+        })
     }
 
     /*
