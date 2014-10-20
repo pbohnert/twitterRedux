@@ -40,6 +40,11 @@ class ContainerViewController: UIViewController, PanelDelegate, UIGestureRecogni
             self.contentView.addSubview(self.centerViewController.view)
             self.centerViewController.view.frame = self.view.frame
             self.centerViewController.didMoveToParentViewController(self)
+            //set my colors
+            //next three lines are how to set text color for buttons AND text color for title of all nav bars for all controllers.
+            var navigationBarAppearance = UINavigationBar.appearance()
+            navigationBarAppearance.tintColor = UIColor.whiteColor()   // how you set text color for nav bar button items.
+            navigationBarAppearance.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor()] //set's color for title
             
         } else {
             self.loginController = storyboard.instantiateViewControllerWithIdentifier("LoginViewController") as LoginViewController
@@ -60,7 +65,6 @@ class ContainerViewController: UIViewController, PanelDelegate, UIGestureRecogni
     }
     
     func userDidLogin() {
-        //self.setTweetsControllerInContentView()
         //self.slideMenuController.setData()
         
         if (self.centerViewController == nil) {
@@ -96,7 +100,7 @@ class ContainerViewController: UIViewController, PanelDelegate, UIGestureRecogni
             } else if (sender.state == UIGestureRecognizerState.Ended) {
                 var center = self.view.center
                 if (location.x < center.x) {
-                    self.openContentView()
+                    self.slideContentView()
                 } else {
                     var quarter = self.view.frame.width / 4
                     UIView.animateWithDuration(0.5, animations: { () -> Void in
@@ -107,7 +111,7 @@ class ContainerViewController: UIViewController, PanelDelegate, UIGestureRecogni
         }
     }
 
-    func openContentView() {
+    func slideContentView() {
         UIView.animateWithDuration(0.5, animations: { () -> Void in
             self.contentView.frame.origin.x = 0;
         })

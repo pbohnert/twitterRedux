@@ -17,6 +17,11 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Home"
+ 
+        //set my colors: sets text color for buttons AND text color for title of all nav bars for all controllers.
+        var navigationBarAppearance = UINavigationBar.appearance()
+        navigationBarAppearance.tintColor = UIColor.whiteColor()   // how you set text color for nav bar button items.
+        navigationBarAppearance.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor()] //set's color for title
         
         setUpRefreshControl()
         homeTimeLine()
@@ -74,6 +79,14 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let loading = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         loading.mode = MBProgressHUDModeDeterminate
         loading.labelText = "Loading...";
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "tweetDetailsSegue") {
+            var detailsController = segue.destinationViewController as TweetDetailViewController
+            var cell = sender as TweetCell
+            detailsController.tweet = cell.tweet
+        }
     }
     
     override func didReceiveMemoryWarning() {
