@@ -8,11 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		D09B9F9319F56A490080EC36 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09B9F9219F56A490080EC36 /* AppDelegate.swift */; };
-		D09B9F9519F56A490080EC36 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09B9F9419F56A490080EC36 /* ViewController.swift */; };
+		D09B9F9519F56A490080EC36 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09B9F9419F56A490080EC36 /* ContainerViewController.swift */; };
 		D09B9F9819F56A490080EC36 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D09B9F9619F56A490080EC36 /* Main.storyboard */; };
 		D09B9F9A19F56A490080EC36 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D09B9F9919F56A490080EC36 /* Images.xcassets */; };
 		D09B9F9D19F56A490080EC36 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D09B9F9B19F56A490080EC36 /* LaunchScreen.xib */; };
 		D09B9FA919F56A490080EC36 /* twitterReduxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09B9FA819F56A490080EC36 /* twitterReduxTests.swift */; };
+		D09B9FB319F56B0A0080EC36 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09B9FB219F56B0A0080EC36 /* LoginViewController.swift */; };
+		D09B9FB519F56B590080EC36 /* SidePanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09B9FB419F56B590080EC36 /* SidePanelViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,13 +31,15 @@
 		D09B9F8D19F56A490080EC36 /* twitterRedux.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = twitterRedux.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D09B9F9119F56A490080EC36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D09B9F9219F56A490080EC36 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D09B9F9419F56A490080EC36 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D09B9F9419F56A490080EC36 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		D09B9F9719F56A490080EC36 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D09B9F9919F56A490080EC36 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D09B9F9C19F56A490080EC36 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		D09B9FA219F56A490080EC36 /* twitterReduxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = twitterReduxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D09B9FA719F56A490080EC36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D09B9FA819F56A490080EC36 /* twitterReduxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = twitterReduxTests.swift; sourceTree = "<group>"; };
+		D09B9FB219F56B0A0080EC36 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		D09B9FB419F56B590080EC36 /* SidePanelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SidePanelViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,8 +81,10 @@
 		D09B9F8F19F56A490080EC36 /* twitterRedux */ = {
 			isa = PBXGroup;
 			children = (
+				D09B9FB819F56B850080EC36 /* Controllers */,
+				D09B9FB719F56B7D0080EC36 /* Models */,
+				D09B9FB619F56B750080EC36 /* API */,
 				D09B9F9219F56A490080EC36 /* AppDelegate.swift */,
-				D09B9F9419F56A490080EC36 /* ViewController.swift */,
 				D09B9F9619F56A490080EC36 /* Main.storyboard */,
 				D09B9F9919F56A490080EC36 /* Images.xcassets */,
 				D09B9F9B19F56A490080EC36 /* LaunchScreen.xib */,
@@ -110,6 +116,30 @@
 				D09B9FA719F56A490080EC36 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D09B9FB619F56B750080EC36 /* API */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
+		D09B9FB719F56B7D0080EC36 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		D09B9FB819F56B850080EC36 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D09B9F9419F56A490080EC36 /* ContainerViewController.swift */,
+				D09B9FB219F56B0A0080EC36 /* LoginViewController.swift */,
+				D09B9FB419F56B590080EC36 /* SidePanelViewController.swift */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,7 +242,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D09B9F9519F56A490080EC36 /* ViewController.swift in Sources */,
+				D09B9FB519F56B590080EC36 /* SidePanelViewController.swift in Sources */,
+				D09B9FB319F56B0A0080EC36 /* LoginViewController.swift in Sources */,
+				D09B9F9519F56A490080EC36 /* ContainerViewController.swift in Sources */,
 				D09B9F9319F56A490080EC36 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
