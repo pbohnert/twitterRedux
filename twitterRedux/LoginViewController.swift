@@ -21,6 +21,18 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func onLogin(sender: AnyObject) {
+        TwitterClient.sharedInstance.loginWithCompletion() {
+            (user: User?, error: NSError?) in
+            if user != nil {
+                //perform seque
+                self.performSegueWithIdentifier("loginSegue", sender: self)
+            } else {
+                // handle login error
+                println("couldn't get user")
+            }
+        }
+    }
 
     /*
     // MARK: - Navigation
