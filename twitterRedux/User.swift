@@ -74,4 +74,8 @@ class User: NSObject {
             }
         }
     }
+    
+    class func isLoggedIn() -> Bool {
+        return (currentUser != nil)
+    }
 }

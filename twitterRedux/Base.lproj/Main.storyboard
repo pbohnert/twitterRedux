@@ -23,16 +23,26 @@
                             <view contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="contentView" translatesAutoresizingMaskIntoConstraints="NO" id="nns-HG-Ftj">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Hbf-Z1-f8T" appends="YES" id="YyF-JG-BXv"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="contentView" destination="nns-HG-Ftj" id="wwv-L1-QgR"/>
+                        <outlet property="panGesture" destination="nns-HG-Ftj" id="99K-KG-fck"/>
                         <outlet property="sideView" destination="eTK-ah-8kW" id="iuh-Au-kjO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="Hbf-Z1-f8T">
+                    <connections>
+                        <action selector="onPanGesture:" destination="vXZ-lx-hvc" id="6xv-bd-YjU"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="9" y="328"/>
         </scene>

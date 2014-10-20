@@ -7,18 +7,13 @@
 //
 
 import UIKit
-import QuartzCore
-
-enum SlideOutState {
-    case Collapsed
-    case LeftPanelExpanded
-}
 
 class ContainerViewController: UIViewController, PanelDelegate, UIGestureRecognizerDelegate {
     var leftViewController: SidePanelViewController!
     var loginController: LoginViewController!
     var centerViewController: UINavigationController!
     
+    @IBOutlet weak var panGesture: UIView!
     @IBOutlet weak var sideView: UIView!
     @IBOutlet weak var contentView: UIView!
     
@@ -45,6 +40,7 @@ class ContainerViewController: UIViewController, PanelDelegate, UIGestureRecogni
             self.contentView.addSubview(self.centerViewController.view)
             self.centerViewController.view.frame = self.view.frame
             self.centerViewController.didMoveToParentViewController(self)
+            
         } else {
             self.loginController = storyboard.instantiateViewControllerWithIdentifier("LoginViewController") as LoginViewController
             addChildViewController(self.loginController)
@@ -55,16 +51,8 @@ class ContainerViewController: UIViewController, PanelDelegate, UIGestureRecogni
         }
         // I have two views on my container VC.  Bring the right one to the front.
         self.view.bringSubviewToFront(self.contentView)
-        
-        
+    
         // Do any additional setup after loading the view, typically from a nib.
-    }
-
-    var currentState: SlideOutState = .Collapsed {
-        didSet {
-            let shouldShowShadow = currentState != .Collapsed
-            showShadowForCenterViewController(shouldShowShadow)
-        }
     }
     
     func showMyProfile() {
@@ -95,45 +83,35 @@ class ContainerViewController: UIViewController, PanelDelegate, UIGestureRecogni
         self.loginController.didMoveToParentViewController(self)
     }
     
-    
-
-    
-    // MARK: Gesture recognizer
-    
-    func handlePanGesture(recognizer: UIPanGestureRecognizer) {
-        let gestureIsDraggingFromLeftToRight = (recognizer.velocityInView(view).x > 0)
-        
-        switch(recognizer.state) {
-        case .Began:
-            if (currentState == .Collapsed) {
-                if (gestureIsDraggingFromLeftToRight) {
-          ///// //   addLeftPanelViewController()
+ 
+    @IBAction func onPanGesture(sender: UIPanGestureRecognizer) {
+        if (User.isLoggedIn()) {
+            var location = sender.locationInView(self.view)
+            
+            if (sender.state == UIGestureRecognizerState.Began || sender.state == UIGestureRecognizerState.Changed) {
+                var quarter = self.view.frame.width / 4
+                if (location.x <= (quarter * 3)) {
+                    self.contentView.frame.origin.x = location.x
                 }
-                showShadowForCenterViewController(true)
+            } else if (sender.state == UIGestureRecognizerState.Ended) {
+                var center = self.view.center
+                if (location.x < center.x) {
+                    self.openContentView()
+                } else {
+                    var quarter = self.view.frame.width / 4
+                    UIView.animateWithDuration(0.5, animations: { () -> Void in
+                        self.contentView.frame.origin.x = (quarter * 3)
+                    })
+                }
             }
-        case .Changed:
-            recognizer.view!.center.x = recognizer.view!.center.x + recognizer.translationInView(view).x
-            recognizer.setTranslation(CGPointZero, inView: view)
-        case .Ended:
-            if (leftViewController != nil) {
-                // animate the side panel open or closed based on whether the view has moved more or less than halfway
-                let hasMovedGreaterThanHalfway = recognizer.view!.center.x > view.bounds.size.width
-    ////  //      animateLeftPanel(shouldExpand: hasMovedGreaterThanHalfway)
-            }
-        default:
-            break
         }
     }
-    
-    func showShadowForCenterViewController(shouldShowShadow: Bool) {
-        if (shouldShowShadow) {
-            centerViewController.view.layer.shadowOpacity = 0.8
-        } else {
-            centerViewController.view.layer.shadowOpacity = 0.0
-        }
-    }
-    
 
+    func openContentView() {
+        UIView.animateWithDuration(0.5, animations: { () -> Void in
+            self.contentView.frame.origin.x = 0;
+        })
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
