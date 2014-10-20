@@ -66,7 +66,7 @@ class User: NSObject {
     class func loginWithCompletion(completion: () -> Void) {
         TwitterClient.sharedInstance.loginWithCompletion { (user, error) -> () in
             if (user != nil) {
-                println("my login worked")
+               // println("my login worked")
                 NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: userDidLoginNotification, object: nil))
                 completion()
             } else {

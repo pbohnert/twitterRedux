@@ -23,7 +23,7 @@ class LoginViewController: UIViewController {
     
     @IBAction func onLogin(sender: AnyObject) {
         User.loginWithCompletion({ () -> Void in
-            println("hoping we have logged in...")
+           //go get logged in
         })
     }
 
