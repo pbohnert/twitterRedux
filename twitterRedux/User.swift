@@ -18,7 +18,11 @@ class User: NSObject {
     var name: String!
     var screenName: String!
     var profileImageURL: NSURL!
+    var bannerImageUrl: NSURL!
     var tagline: String!
+    var followersCount: Int!
+    var friendsCount: Int!
+    var tweetsCount: Int!
     var dictionary: NSDictionary!
     
     init(dictionary: NSDictionary) {
@@ -26,9 +30,13 @@ class User: NSObject {
         
         self.name = dictionary["name"] as String
         self.screenName = dictionary["screen_name"] as String
+        var profileImageURL = (dictionary["profile_image_url"] as String).stringByReplacingOccurrencesOfString("normal", withString: "bigger", options: NSStringCompareOptions.LiteralSearch, range: nil)
         self.profileImageURL = NSURL(string: dictionary["profile_image_url"] as String)
         
         self.tagline = dictionary["description"] as? String
+        self.followersCount = dictionary["followers_count"] as Int
+        self.friendsCount = dictionary["friends_count"] as Int
+        self.tweetsCount = dictionary["statuses_count"] as Int
     }
     
     func logout() {

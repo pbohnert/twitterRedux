@@ -42,6 +42,9 @@ class SidePanelViewController: UIViewController {
         }
     }
     
+    @IBAction func tapProfileView(sender: UITapGestureRecognizer) {
+    }
+    
     @IBAction func onSignout(sender: UITapGestureRecognizer) {
         User.currentUser?.logout()
     }

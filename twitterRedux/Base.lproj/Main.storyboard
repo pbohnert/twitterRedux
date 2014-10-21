@@ -87,9 +87,9 @@
                                 <rect key="frame" x="0.0" y="121" width="320" height="90"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Signout" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZtP-Nc-cPI">
-                                        <rect key="frame" x="130" y="34" width="70" height="21"/>
+                                        <rect key="frame" x="105" y="34" width="85" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -109,14 +109,18 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C7z-Jg-xcG" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="QDq-4d-xgu"/>
+                <tapGestureRecognizer id="QDq-4d-xgu">
+                    <connections>
+                        <action selector="tapProfileView:" destination="umW-uc-fhS" id="PQF-9t-9sk"/>
+                    </connections>
+                </tapGestureRecognizer>
                 <tapGestureRecognizer id="2cx-ml-R0Q">
                     <connections>
                         <action selector="onSignout:" destination="umW-uc-fhS" id="Rw2-JH-WPd"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="408" y="328"/>
+            <point key="canvasLocation" x="374" y="328"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="cS4-Oa-VEu">
