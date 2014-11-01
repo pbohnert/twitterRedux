@@ -32,6 +32,7 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
         // Do any additional setup after loading the view.
     }
+
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCellWithIdentifier("TweetCell") as TweetCell
@@ -98,6 +99,11 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         User.currentUser?.logout()
         self.dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    @IBAction func onNewTweet(sender: AnyObject) {
+        self.performSegueWithIdentifier("newTweetSegue", sender: self)
+    }
+
 
     /*
     // MARK: - Navigation

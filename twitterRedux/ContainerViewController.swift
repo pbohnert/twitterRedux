@@ -40,11 +40,8 @@ class ContainerViewController: UIViewController, PanelDelegate, UIGestureRecogni
             self.contentView.addSubview(self.centerViewController.view)
             self.centerViewController.view.frame = self.view.frame
             self.centerViewController.didMoveToParentViewController(self)
-            //set my colors
-            //next three lines are how to set text color for buttons AND text color for title of all nav bars for all controllers.
-            var navigationBarAppearance = UINavigationBar.appearance()
-            navigationBarAppearance.tintColor = UIColor.whiteColor()   // how you set text color for nav bar button items.
-            navigationBarAppearance.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor()] //set's color for title
+            setColorScheme()
+            
             
         } else {
             self.loginController = storyboard.instantiateViewControllerWithIdentifier("LoginViewController") as LoginViewController
@@ -64,8 +61,23 @@ class ContainerViewController: UIViewController, PanelDelegate, UIGestureRecogni
         
     }
     
+    func setColorScheme() {
+        
+        //set my colors
+        //next three lines are how to set text color for buttons AND text color for title of all nav bars for all controllers.
+        var navigationBarAppearance = UINavigationBar.appearance()
+        navigationBarAppearance.tintColor = UIColor.whiteColor()   // how you set text color for nav bar button items.
+        navigationBarAppearance.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor()] //set's color for title
+        
+        return
+        
+    }
+    
     func userDidLogin() {
-        //self.slideMenuController.setData()
+        // load content on side panel
+        self.leftViewController.initProfileView()
+        
+        setColorScheme()
         
         if (self.centerViewController == nil) {
             var storyboard = UIStoryboard(name: "Main", bundle: nil)
