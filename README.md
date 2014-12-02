@@ -32,4 +32,3 @@ Time spent:  10 hours
 * [MBProgressHUD] (https://github.com/jdg/MBProgressHUD)
 * [TSMessage] (https://github.com/toursprung/TSMessages)
 * [BDBOAuth1Manager] (https://github.com/bdbergeron/BDBOAuth1Manager)
-ler.
