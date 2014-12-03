@@ -14,7 +14,7 @@ class SidePanelViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var screennameLabel: UILabel!
     
-    var panelDelegate: PanelDelegate?
+    var panelDelegate: PanelDelegate!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +42,11 @@ class SidePanelViewController: UIViewController {
         }
     }
     
+    @IBAction func tapHome(sender: UITapGestureRecognizer) {
+        panelDelegate.showMyTimeline()
+    }
     @IBAction func tapProfileView(sender: UITapGestureRecognizer) {
+        panelDelegate.showMyProfile()
     }
     
     @IBAction func onSignout(sender: UITapGestureRecognizer) {

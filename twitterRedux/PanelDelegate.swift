@@ -10,5 +10,6 @@
 protocol PanelDelegate {
     
     func showMyProfile()
+    func showMyTimeline()
     
 }

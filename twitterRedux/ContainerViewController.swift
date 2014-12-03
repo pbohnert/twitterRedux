@@ -11,6 +11,7 @@ import UIKit
 class ContainerViewController: UIViewController, PanelDelegate, UIGestureRecognizerDelegate {
     var leftViewController: SidePanelViewController!
     var loginController: LoginViewController!
+    var profileController: UINavigationController!
     var centerViewController: UINavigationController!
     
     @IBOutlet weak var panGesture: UIView!
@@ -57,7 +58,35 @@ class ContainerViewController: UIViewController, PanelDelegate, UIGestureRecogni
         // Do any additional setup after loading the view, typically from a nib.
     }
     
+    func setTimelineInCenterViewController() {
+        if (self.centerViewController == nil) {
+            var storyboard = UIStoryboard(name: "Main", bundle: nil)
+            self.centerViewController = storyboard.instantiateViewControllerWithIdentifier("TweetsNavigationViewController") as UINavigationController
+ 
+            self.addChildViewController(self.centerViewController)
+        }
+            self.contentView.addSubview(self.centerViewController.view)
+            self.centerViewController.view.frame = self.view.frame
+            self.centerViewController.didMoveToParentViewController(self)
+    }
+    
+    
+    func showMyTimeline() {
+        setTimelineInCenterViewController()
+        slideContentView()
+        }
+        
     func showMyProfile() {
+        if (self.profileController == nil) {
+            var storyboard = UIStoryboard(name: "Main", bundle: nil)
+            self.profileController = storyboard.instantiateViewControllerWithIdentifier("ProfileNavigationController") as UINavigationController
+            self.addChildViewController(self.profileController)
+        }
+        self.contentView.addSubview(self.profileController.view)
+        self.profileController.view.frame = self.view.frame
+        self.profileController.didMoveToParentViewController(self)
+        
+        slideContentView()
         
     }
     
