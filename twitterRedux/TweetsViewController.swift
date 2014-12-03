@@ -100,8 +100,8 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
-    @IBAction func onNewTweet(sender: AnyObject) {
-        self.performSegueWithIdentifier("newTweetSegue", sender: self)
+    @IBAction func onNewButton(sender: AnyObject) {
+         self.performSegueWithIdentifier("newTweetSegue", sender: self)
     }
 
 

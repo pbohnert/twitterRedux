@@ -45,6 +45,7 @@ class SidePanelViewController: UIViewController {
     @IBAction func tapHome(sender: UITapGestureRecognizer) {
         panelDelegate.showMyTimeline()
     }
+    
     @IBAction func tapProfileView(sender: UITapGestureRecognizer) {
         panelDelegate.showMyProfile()
     }
