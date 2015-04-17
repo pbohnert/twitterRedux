@@ -28,15 +28,15 @@ class User: NSObject {
     init(dictionary: NSDictionary) {
         self.dictionary = dictionary
         
-        self.name = dictionary["name"] as String
-        self.screenName = dictionary["screen_name"] as String
-        var profileImageURL = (dictionary["profile_image_url"] as String).stringByReplacingOccurrencesOfString("normal", withString: "bigger", options: NSStringCompareOptions.LiteralSearch, range: nil)
-        self.profileImageURL = NSURL(string: dictionary["profile_image_url"] as String)
+        self.name = dictionary["name"] as! String
+        self.screenName = dictionary["screen_name"] as! String
+        var profileImageURL = (dictionary["profile_image_url"] as! String).stringByReplacingOccurrencesOfString("normal", withString: "bigger", options: NSStringCompareOptions.LiteralSearch, range: nil)
+        self.profileImageURL = NSURL(string: dictionary["profile_image_url"] as! String)
         
         self.tagline = dictionary["description"] as? String
-        self.followersCount = dictionary["followers_count"] as Int
-        self.friendsCount = dictionary["friends_count"] as Int
-        self.tweetsCount = dictionary["statuses_count"] as Int
+        self.followersCount = dictionary["followers_count"] as! Int
+        self.friendsCount = dictionary["friends_count"] as! Int
+        self.tweetsCount = dictionary["statuses_count"] as! Int
     }
     
     func logout() {
@@ -50,7 +50,7 @@ class User: NSObject {
         if _currentUser == nil {
         var data = NSUserDefaults.standardUserDefaults().objectForKey(currentUserKey) as? NSData
         if data != nil {
-        var dictionary = NSJSONSerialization.JSONObjectWithData(data!, options: nil, error: nil) as NSDictionary
+        var dictionary = NSJSONSerialization.JSONObjectWithData(data!, options: nil, error: nil) as! NSDictionary
         _currentUser = User(dictionary: dictionary)
         
         }

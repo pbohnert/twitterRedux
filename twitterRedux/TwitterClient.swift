@@ -51,7 +51,7 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
             params.updateValue("\(replyId!)", forKey: "in_reply_to_status_id")
         }
         self.POST("/1.1/statuses/update.json", parameters: params, success: { (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
-            var tweet = Tweet(dictionary: response as NSDictionary)
+            var tweet = Tweet(dictionary: response as! NSDictionary)
             completion(tweet: tweet, error: nil)
             
             }) { (operation:AFHTTPRequestOperation!, error: NSError!) -> Void in
@@ -68,7 +68,7 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
             //call to get current user
             TwitterClient.sharedInstance.GET("1.1/account/verify_credentials.json", parameters: nil, success: { (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
                 //println("user: \(response)")
-                var user = User(dictionary: response as NSDictionary)
+                var user = User(dictionary: response as! NSDictionary)
                 User.currentUser = user  // set our current user
                 //println("user: \(user.name)")
                 self.loginCompletion?(user: user, error: nil)
@@ -86,7 +86,7 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
         //call to get home timeline
         GET("1.1/statuses/home_timeline.json", parameters: params, success:  { (operations: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
             //println("home timeline \(response)")
-            var tweets = Tweet.tweetsWithArray(response as [NSDictionary])
+            var tweets = Tweet.tweetsWithArray(response as! [NSDictionary])
             completion(tweets: tweets, error: nil)
             
             // for tweet in tweets {

@@ -27,7 +27,7 @@ class ContainerViewController: UIViewController, PanelDelegate, UIGestureRecogni
 
         // first set up left panel
         var storyboard = UIStoryboard(name: "Main", bundle: nil)
-        self.leftViewController = storyboard.instantiateViewControllerWithIdentifier("SidePanelViewController") as SidePanelViewController
+        self.leftViewController = storyboard.instantiateViewControllerWithIdentifier("SidePanelViewController") as! SidePanelViewController
         addChildViewController(self.leftViewController)
         self.sideView.addSubview(self.leftViewController.view)
         self.leftViewController.view.frame = self.view.frame
@@ -36,7 +36,7 @@ class ContainerViewController: UIViewController, PanelDelegate, UIGestureRecogni
         
         // What my Center VC is depends upon whether I'm logged in or not.  Note that I instantiate the Tweets Nav Controller if logged in, since TweetsVC is embedded in that NC.
         if (User.currentUser != nil) {
-            self.centerViewController = storyboard.instantiateViewControllerWithIdentifier("TweetsNavigationViewController") as UINavigationController
+            self.centerViewController = storyboard.instantiateViewControllerWithIdentifier("TweetsNavigationViewController") as! UINavigationController
             self.addChildViewController(self.centerViewController)
             self.contentView.addSubview(self.centerViewController.view)
             self.centerViewController.view.frame = self.view.frame
@@ -45,7 +45,7 @@ class ContainerViewController: UIViewController, PanelDelegate, UIGestureRecogni
             
             
         } else {
-            self.loginController = storyboard.instantiateViewControllerWithIdentifier("LoginViewController") as LoginViewController
+            self.loginController = storyboard.instantiateViewControllerWithIdentifier("LoginViewController") as! LoginViewController
             addChildViewController(self.loginController)
             self.contentView.addSubview(self.loginController.view)
             self.loginController.view.frame = self.view.frame
@@ -61,7 +61,7 @@ class ContainerViewController: UIViewController, PanelDelegate, UIGestureRecogni
     func setTimelineInCenterViewController() {
         if (self.centerViewController == nil) {
             var storyboard = UIStoryboard(name: "Main", bundle: nil)
-            self.centerViewController = storyboard.instantiateViewControllerWithIdentifier("TweetsNavigationViewController") as UINavigationController
+            self.centerViewController = storyboard.instantiateViewControllerWithIdentifier("TweetsNavigationViewController") as! UINavigationController
  
             self.addChildViewController(self.centerViewController)
         }
@@ -79,7 +79,7 @@ class ContainerViewController: UIViewController, PanelDelegate, UIGestureRecogni
     func showMyProfile() {
         if (self.profileController == nil) {
             var storyboard = UIStoryboard(name: "Main", bundle: nil)
-            self.profileController = storyboard.instantiateViewControllerWithIdentifier("ProfileNavigationController") as UINavigationController
+            self.profileController = storyboard.instantiateViewControllerWithIdentifier("ProfileNavigationController") as! UINavigationController
             self.addChildViewController(self.profileController)
         }
         self.contentView.addSubview(self.profileController.view)
@@ -110,7 +110,7 @@ class ContainerViewController: UIViewController, PanelDelegate, UIGestureRecogni
         
         if (self.centerViewController == nil) {
             var storyboard = UIStoryboard(name: "Main", bundle: nil)
-            self.centerViewController = storyboard.instantiateViewControllerWithIdentifier("TweetsNavigationViewController") as UINavigationController
+            self.centerViewController = storyboard.instantiateViewControllerWithIdentifier("TweetsNavigationViewController") as! UINavigationController
             self.addChildViewController(self.centerViewController)
         }
         
@@ -121,7 +121,7 @@ class ContainerViewController: UIViewController, PanelDelegate, UIGestureRecogni
     
     func userDidLogout() {
         var storyboard = UIStoryboard(name: "Main", bundle: nil)
-        self.loginController = storyboard.instantiateViewControllerWithIdentifier("LoginViewController") as LoginViewController
+        self.loginController = storyboard.instantiateViewControllerWithIdentifier("LoginViewController") as! LoginViewController
         addChildViewController(self.loginController)
         self.contentView.addSubview(self.loginController.view)
         self.loginController.view.frame = self.view.frame
